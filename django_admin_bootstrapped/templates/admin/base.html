@@ -67,9 +67,10 @@
                 <div class="nav-collapse collapse pull-right">
                     <ul class="nav">
                         {% if user.is_active and user.is_staff %}
-                        {% block user_dropdown %}
                         <li class="dropdown">
+                            {% block welcome %}
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Welcome,' %} <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong> <b class="caret"></b></a>
+                            {% endblock welcome %}
                             <ul class="dropdown-menu pull-right">
                                 {% if user.has_usable_password %}
                                 <li><a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a></li>
@@ -77,7 +78,6 @@
                                 <li><a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a></li>
                             </ul>
                         </li>
-                        {% endblock user_dropdown %}
                         {% block languages %}
                         <li class="divider-vertical"></li> 
                         {% language_selector %}
