@@ -64,6 +64,7 @@
                     <span class="icon-bar"></span>
                 </a>
                 {% block branding %}{% endblock %}
+                {% block user_admin_menu %}
                 <div class="nav-collapse collapse pull-right">
                     <ul class="nav">
                         {% if user.is_active and user.is_staff %}
@@ -79,7 +80,7 @@
                             </ul>
                         </li>
                         {% block languages %}
-                        <li class="divider-vertical"></li> 
+                        <li class="divider-vertical"></li>
                         {% language_selector %}
                         {% endblock languages %}
                         {% block logs %}
@@ -117,6 +118,7 @@
                         {% block nav-global %}{% endblock %}
                     </ul>
                 </div><!--/.nav-collapse -->
+                {% endblock %}
             </div>
         </div>
     </div>
